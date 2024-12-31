@@ -137,7 +137,7 @@ async function manageMailAndRegister() {
     try {
         logger(banner, 'debug');
         const typeKey = await rl.question('Choose Captcha API (1: 2Captcha, 2: Anti-Captcha): ');
-        const apiKey = '9e7e3f252b4bb58fd7a8afa58c4f87b4';
+        const apiKey = await rl.question('API key?');
         if (!apiKey) throw new Error('Invalid API key.');
 
         const input = await rl.question('How many accounts to create? ');

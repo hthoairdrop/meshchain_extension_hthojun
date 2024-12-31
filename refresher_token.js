@@ -51,18 +51,18 @@ async function manageMailAndRegister() {
     try {
         logger(banner, 'debug');
         const typeKey = await rl.question('Choose Captcha API (1: 2Captcha, 2: Anti-Captcha): ');
-        const apiKey = '9e7e3f252b4bb58fd7a8afa58c4f87b4';
+        const apiKey = await rl.question('API key? ');
         if (!apiKey) throw new Error('Invalid API key.');
         const data = await fs.readFile('accounts.txt', 'utf-8');
-        const result = data.split('\n') // Tách từng dòng
-        .filter(line => line.trim() !== '') // Loại bỏ các dòng trống
+        const result = data.split('\n')
+        .filter(line => line.trim() !== '')
         .map(line => {
-          // Tách Email và Password
-          const [emailPart, passwordPart] = line.split(', '); // Tách bởi dấu phẩy và khoảng trắng
-          const email = emailPart.split(': ')[1]; // Lấy phần email
-          const password = passwordPart.split(': ')[1]; // Lấy phần password
+          
+          const [emailPart, passwordPart] = line.split(', ');
+          const email = emailPart.split(': ')[1]; 
+          const password = passwordPart.split(': ')[1]; 
   
-          return { email, password }; // Trả về object
+          return { email, password };
         });  
 
         let i = 1;

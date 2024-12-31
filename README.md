@@ -68,5 +68,5 @@ This repository contains scripts for automating tasks such as user registration,
   npm run autoreg
   ```
 
-  ### Source
+  ### Copy left from source code
   - https://github.com/Zlkcyber/
